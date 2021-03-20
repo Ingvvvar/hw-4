@@ -2,6 +2,7 @@ import React from 'react';
 import Product from '../Product/Product';
 import './Button.css';
 
+
 function ShowHide(props) {
   return (
     <div>{props.show}</div>
@@ -15,11 +16,17 @@ export default class Application extends React.Component {
     this.toggleFlag = this.toggleFlag.bind(this);
   }
 
+  componentDidUpdate() {
+    this.state.flag ? alert("Component is open now") : alert("Component is close now");
+  }
+
   toggleFlag() {
     this.setState(prevState => ({
       flag: !prevState.flag
     }));
   }
+
+
 
   render() {
     return (
